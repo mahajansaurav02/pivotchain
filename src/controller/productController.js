@@ -6,8 +6,9 @@ const createProduct=async(req,res)=>{
 
     try {
 if(!title){return res.status(400).json({message:"Product title required"})}
-const checkProduct=await productModel.find({title:title})
-if(checkProduct){return res.status(400).json({message:"Product title is already available"})}
+let checkProduct=await productModel.find({title:title})
+console.log(checkProduct)
+if(checkProduct.length!==0){return res.status(400).json({message:"Product title is already available"})}
 if(!description){return res.status(400).json({message:"description title required"})}
 if(!productImage){return res.status(400).json({message:"productImage title required"})}
 if(!price){return res.status(400).json({message:"price title required"})}
@@ -27,9 +28,14 @@ return res.status(201).json({message:"Product Created Successfully",data:createP
 const getProducts=async(req,res)=>{
     try {
         
+        const getAllProducts=await productModel.find({isDeleted:false})
+        if(!getAllProducts){return res.status(404).json({message:'No Products found'})}
+
+        return res.status(200).json({message:"Products",data:getAllProducts})
+
     } catch (error) {
         return res.status(500).json({message:error.message})
 
     }
 }
-module.exports={createProduct}
+module.exports={createProduct,getProducts}

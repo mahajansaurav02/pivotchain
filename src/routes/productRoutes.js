@@ -1,8 +1,10 @@
 const express=require("express")
 const router=express.Router()
-const {createProduct}=require("../controller/productController")
+const {createProduct, getProducts}=require("../controller/productController")
 
 router.post('/createProduct',createProduct)
+router.get('/getProducts',getProducts)
+
 
 
 
