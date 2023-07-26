@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="index.html">Home</a>
+        <a href="addProduct.html">Add Products</a>
+        <a href="#about">About</a>
+      </div>
+    <div class="container">
+
+        <form id="productForm">
+            <input type="text" id="title" placeholder="Product Title" required>
+            <textarea id="description" placeholder="Product Description" required></textarea>
+            <input type="text" id="productImage" placeholder="Product Image URL" required>
+            <input type="number" id="price" placeholder="Product Price" required>
+            <button type="submit">Add Product</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

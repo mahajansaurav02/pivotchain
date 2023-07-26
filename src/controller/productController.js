@@ -38,4 +38,46 @@ const getProducts=async(req,res)=>{
 
     }
 }
-module.exports={createProduct,getProducts}
+
+
+const updateProduct=async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { title, description, productImage, price } = req.body;
+      if (!title || !description || !productImage || !price) {
+        return res.status(400).json({ message: 'All fields are required' });
+      }
+  
+      const updatedProduct = await productModel.findByIdAndUpdate(
+        id,
+        { title, description, productImage, price },
+        { new: true }
+      );
+      return res.json({ message: 'Product Updated Successfully', data: updatedProduct });
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
+  };
+
+
+
+
+const deleteProduct=
+    async (req, res) => {
+        try {
+          const { id } = req.params;
+      
+          const deletedProduct = await productModel.findByIdAndUpdate(id, { isDeleted: true }, { new: true });
+      
+          if (!deletedProduct) {
+            return res.status(404).json({ message: 'Product not found' });
+          }
+      
+          return res.json({ message: 'Product Deleted Successfully', data: deletedProduct });
+        } catch (error) {
+          return res.status(500).json({ message: error.message });
+        }
+      };
+
+
+module.exports={createProduct,getProducts,updateProduct,deleteProduct}
