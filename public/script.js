@@ -139,8 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add event listener to the form submit
     productForm.addEventListener('submit', createProduct);
-    // productForm.addEventListener('delete', deleteProduct);
-
-    // Fetch and render the initial list of products
+  
     fetchProducts();
 });

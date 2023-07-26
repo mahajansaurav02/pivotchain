@@ -17,6 +17,19 @@
        
         
         <div id="productList"></div>
+
+        <div id="updateForm" style="display: none;">
+            <h2>Update Product</h2>
+            <form id="updateProductForm">
+                <input type="hidden" id="productId" value="">
+                <input type="text" id="updateTitle" placeholder="Product Title" required>
+                <textarea id="updateDescription" placeholder="Product Description" required></textarea>
+                <input type="text" id="updateProductImage" placeholder="Product Image URL" required>
+                <input type="number" id="updatePrice" placeholder="Product Price" required>
+                <button type="submit">Update</button>
+            </form>
+        </div>
+        
         <form id="productForm">
             
         </form>
