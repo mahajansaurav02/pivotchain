@@ -1,6 +1,7 @@
 # pivotchain
 
-step-1 Create folder and Git clone the repository -https://github.com/mahajansaurav02/pivotchain.git
+step-1 Create one folder and clone this repository with command -
+git clone  https://github.com/mahajansaurav02/pivotchain.git
 step 2- go to inside this folder and run npm i command to install dependencies on local device
 
 step 3 - run npm start command to start node.js server and connect MongoDb database.
